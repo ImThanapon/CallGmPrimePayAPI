@@ -1,5 +1,0 @@
-resultCode : 00
-amount : 4.99
-referenceNo : 201212478
-gbpReferenceNo : gbp149411989451
-currencyCode : 

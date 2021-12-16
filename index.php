@@ -36,7 +36,7 @@ function seeDetail(id, name, price, img) {
             <a class="navbar-brand" href="<?= $host?>">
                 <img src="https://cdn2.iconfinder.com/data/icons/real-estate-1-12/50/13-512.png" alt="" width="30"
                     height="24" class="d-inline-block align-text-top">
-                    Store by AdminLTE<b> ระบบหลังบ้าน</b> 
+                Store by AdminLTE
             </a>
         </div>
     </nav>

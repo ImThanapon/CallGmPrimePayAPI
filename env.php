@@ -1,7 +1,7 @@
 <?php
     $ranRefNo = '201212'.rand(100,999);
 
-    $host = 'http://localhost/DEENA/gbp/';
+    $host = 'https://localhost/DEENA/gbp/';
 
     $testUrlAPI = 'https://api.globalprimepay.com/';
 
@@ -11,5 +11,5 @@
 
     $public_key = "3QpUB0bwqOczd1ynkEdefyq7rEA72QWD";
     
-    $resUrl = "http://localhost/DEENA/gbp/response/";
+    $resUrl = "https://localhost/DEENA/gbp/response/";
 ?>

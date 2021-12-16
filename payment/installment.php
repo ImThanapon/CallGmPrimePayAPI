@@ -2,7 +2,7 @@
     require('../env.php');
     if(isset($_GET['refNo'])){
         $ref_no = $_GET['refNo'];
-        $price = $_GET['price'];
+        $price = number_format($_GET['price'], 2);
     }
 ?>
 
@@ -16,15 +16,16 @@
     <title>Pay with Installment</title>
 </head>
 <body>
-    <form action="<?= $testUrlAPI?>v3/installment" method="POST"> 
-    <input type="hidden" name="publicKey" value="<?= $public_key?>">
-    <input type="hidden" name="referenceNo" value="<?= $ref_no?>">
-    <input type="hidden" name="responseUrl" value="<?= $resUrl?>res_installment.php">
-    <input type="hidden" name="backgroundUrl" value="<?= $resUrl?>res_installment.php">
+    <form action="<?= $testUrlAPI?>/v3/installment" method="POST"> 
+    <input type="text" name="publicKey" value="<?= $public_key?>">
+    <input type="text" name="referenceNo" value="<?= $ref_no?>">
+    <input type="text" name="responseUrl" value="<?= $resUrl?>res_installment.php">
+    <input type="text" name="backgroundUrl" value="<?= $resUrl?>res_installment.php">
+    <input type="text" name="detail" placeholder="Detail" value="ข้อมูลรายละเอียด"><br/>
     <input type="number" name="amount" maxlength="13" placeholder="Amount" value="<?= $price?>"><br/>
-    <input type="text" name="bankCode" maxlength="3" placeholder="Bank Code" value="014"><br/>
-    <input type="number" name="term" maxlength="2" placeholder="The number of monthly installments" value="10"><br/>
-    <input type="hidden" name="checksum" placeholder="checksum" value="{checksum}"><br/>
+    <input type="text" name="bankCode" maxlength="3" placeholder="Bank Code Ex.014, 004, 025" value=""><br/>
+    <input type="number" name="term" maxlength="2" placeholder="The number of monthly installments Ex.2" value=""><br/>
+    <input type="text" name="checksum" placeholder="checksum" value=""><br/>
     <input id="button" type="button" onClick="genChecksum()" value="Generate Checksum">
     <input id="button" type="submit" value="Pay Now">
     </form>
@@ -39,11 +40,12 @@
             document.getElementsByName("responseUrl")[0].value + 
             document.getElementsByName("backgroundUrl")[0].value + 
             document.getElementsByName("bankCode")[0].value +
-            document.getElementsByName("term")[0].value ,
-    <?= $secret_key?>);
+            document.getElementsByName("term")[0].value , 'UKrMkNMg8jY7ZovzN8MIqvpXpZgRSzDn');
 
     document.getElementsByName("checksum")[0].value = hash;
     }
     </script>
+
+
 </body>
 </html>

@@ -18,5 +18,9 @@ fwrite($respFile, "resultCode : ".$resultCode . "\n");
 
 fclose($respFile);
 
-echo "ok";
+if($_POST["resultCode"] =='00'){
+    echo "ok";
+}
+
+
 ?>

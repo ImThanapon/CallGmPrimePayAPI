@@ -53,32 +53,35 @@
 
                             </div>
                             <div class="col-12 col-sm-6">
-                                <h3 class="my-3"><?php echo $_GET['name'];?> <span class="badge bg-secondary">referenceNo : <?php echo $ranRefNo;?></span><br></h3>
+                                <h3 class="my-3"><?php echo $_GET['name'];?> <span
+                                        class="badge bg-secondary">referenceNo : <?php echo $ranRefNo;?></span><br></h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit repudiandae earum
                                     accusantium architecto amet recusandae quam quisquam excepturi dolore nobis!</p>
+                                <div class="bg-gray py-2  mt-4 text-center">
+                                    <div class="alert alert-warning" role="alert">
+                                        <h1> Price <?php echo $_GET['price'];?>฿</h1>
+                                    </div>
 
-                                <hr>
-                                <div class="bg-gray py-2 px-3 mt-4">
-                                    <h2 class="mb-0">
-                                        Price <?php echo $_GET['price'];?>฿
-                                    </h2>
-                                   
+
                                 </div>
+                                <hr>
+
 
                                 <div class="mt-4">
+                                    <h3>ช่องทางการชำระเงิน</h3>
 
                                     <a class="btn btn-primary"
                                         href="payment/genToken.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ชำระด้วย
                                         Credit/Debit card</a>
-                                    <a class="btn btn-outline-dark"
+                                    <a class="btn btn-warning"
                                         href="payment/installment.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ระบบผ่อนชำระ
                                         Installment</a>
 
                                     <br><br>
-                                    <a class="btn btn-outline-dark"
+                                    <a class="btn btn-secondary"
                                         href="payment/qrcode.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ชำระด้วย
                                         QR Code</a>
-                                    <a class="btn btn-outline-dark"
+                                    <a class="btn btn-danger"
                                         href="payment/mobile_banking.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ชำระด้วย
                                         Mobile Banking</a>
                                     <a class="btn btn-success"
