@@ -1,10 +1,10 @@
 <?php
 require('../env.php');
 
-echo $_GET['token'];
-echo '<br>';
-echo $_GET['refNo'];
-echo '<br>';
+// echo $_GET['token'];
+// echo '<br>';
+// echo $_GET['refNo'];
+// echo '<br>';
 
 if(isset($_GET['token'])){
   $token = $_GET['token'];

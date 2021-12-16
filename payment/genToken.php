@@ -78,6 +78,18 @@
                 </form>
             </div>
 
+            
+
+        </div>
+        <div class="text-center">
+        Card Test <br>
+        Card Number : 4535017710535741	<br>
+        MM/YY : 05/28	<br>
+        CVV : 184<br><br>
+
+        Card Number : 5258860689905862	<br>
+        MM/YY : 02/25	<br>
+        CVV : 950
         </div>
 
     </div>

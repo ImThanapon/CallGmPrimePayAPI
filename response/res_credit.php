@@ -1,50 +1,52 @@
 <?php
-  require_once('../connetion.php');
-  require_once('../env.php');
+    require_once('../connetion.php');
+    require_once('../env.php');
 
-  $respFile = fopen("log/resp-credit-log.txt", "w") or die("Unable to open file!");
+    if (!isset($_GET['deleted'])) {
+        $respFile = fopen("log/resp-credit-log.txt", "w") or die("Unable to open file!");
 
-  $respResultCode = $_POST["resultCode"];
-  fwrite($respFile, "resultCode : " . $respResultCode . "\n");
+        $respResultCode = $_POST["resultCode"];
+        fwrite($respFile, "resultCode : " . $respResultCode . "\n");
 
-  $respAmount = $_POST["amount"];
-  fwrite($respFile, "amount : " . $respAmount . "\n");
+        $respAmount = $_POST["amount"];
+        fwrite($respFile, "amount : " . $respAmount . "\n");
 
-  $respReferenceNo = $_POST["referenceNo"];
-  fwrite($respFile, "referenceNo : " . $respReferenceNo . "\n");
+        $respReferenceNo = $_POST["referenceNo"];
+        fwrite($respFile, "referenceNo : " . $respReferenceNo . "\n");
 
-  $respGbpReferenceNo = $_POST["gbpReferenceNo"];
-  fwrite($respFile, "gbpReferenceNo : " . $respGbpReferenceNo . "\n");
+        $respGbpReferenceNo = $_POST["gbpReferenceNo"];
+        fwrite($respFile, "gbpReferenceNo : " . $respGbpReferenceNo . "\n");
 
-  $respCurrencyCode = $_POST["currencyCode"];
-  fwrite($respFile, "currencyCode : " . $respCurrencyCode . "\n");
+        $respCurrencyCode = $_POST["currencyCode"];
+        fwrite($respFile, "currencyCode : " . $respCurrencyCode . "\n");
 
-  fclose($respFile);
-  date_default_timezone_set('Asia/Bangkok');
-  $date_pay = date("y-m-d H:i:s");
+        fclose($respFile);
+        date_default_timezone_set('Asia/Bangkok');
+        $date_pay = date("y-m-d H:i:s");
 
-  if($respReferenceNo){
-    $sql_update = " UPDATE order_detail 
-                    SET date_payment = '$date_pay',
-                        result_code = '$respResultCode',
-                        amount = '$respAmount',
-                        gbp_ref_no = '$respGbpReferenceNo',
-                        currency_code = '$respCurrencyCode' 
-                    WHERE ref_no = '$respReferenceNo'";
+        if($respReferenceNo){
+            $sql_update = " UPDATE order_detail 
+                            SET date_payment = '$date_pay',
+                                result_code = '$respResultCode',
+                                amount = '$respAmount',
+                                gbp_ref_no = '$respGbpReferenceNo',
+                                currency_code = '$respCurrencyCode' 
+                            WHERE ref_no = '$respReferenceNo'";
 
-    $query = mysqli_query($con,$sql_update);
-    if($query) {
+            $query = mysqli_query($con,$sql_update);
+            if($query) {
 
-        // echo "Record add successfully";
+                // echo "Record add successfully";
+            }else{
+            // echo 'เพิ่มข้อมูลไม่สำเร็จ';
+            }
+            mysqli_close($con);
+            
+        }
     }else{
-      // echo 'เพิ่มข้อมูลไม่สำเร็จ';
+        $respResultCode = '99';
     }
-    mysqli_close($con);
     
-  }
-  
-
-
 
 ?>
 
@@ -91,10 +93,13 @@
                     <?php echo ($respResultCode == "00") ? '<span class="badge bg-success">สำเร็จ</span>' : '<span class="badge bg-danger">ไม่สำเร็จ</span>';?>
                 </h5>
 
-                <?php echo ($respResultCode != "00") ? '
-                <div class="alert alert-danger" role="alert">
-                <i class="fas fa-exclamation-triangle"></i>
-                    <span>เกิดข้อผิดพลาดในขั้นตอนการชำระเงิน <br>กรุณาตรวจสอบข้อมูลบัตรของท่านอีกครั้ง</span></div>' : '';?>
+                <?php if ($respResultCode != "00") {
+                    echo '<div class="mt-2 alert alert-danger" role="alert"> <i class="fas fa-exclamation-triangle"></i>
+                        <span>เกิดข้อผิดพลาดในขั้นตอนการชำระเงิน <br>กรุณาตรวจสอบข้อมูลบัตรของท่าน <br>และทำรายการใหม่อีกครั้ง</span></div>';
+                    if (!isset($_GET['deleted'])) {
+                            echo "<script>window.location='".$host."delete.php?ref_no=".$respReferenceNo."'; </script>";
+                    }
+                }?>
 
 
 
