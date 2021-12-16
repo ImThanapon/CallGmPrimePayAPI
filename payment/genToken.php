@@ -4,8 +4,8 @@
     $id = $_GET['id'];
     $refNo = $_GET['refNo'];
     $price = $_GET['price'];
-    $sql_cre_order = "INSERT INTO order_detail(customer_id, product_id, result_code, ref_no, date_payment, amount)
-                      VALUES ('cus0001','$id','99','$refNo',null, '$price') ";
+    $sql_cre_order = "INSERT INTO order_detail(customer_id, product_id, result_code, ref_no, date_payment, amount, pay_method)
+                      VALUES ('cus0001','$id','99','$refNo',null, '$price', 'credit') ";
     $query = mysqli_query($con,$sql_cre_order);
     if($query) {
     }

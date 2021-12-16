@@ -41,14 +41,12 @@
             // echo 'เพิ่มข้อมูลไม่สำเร็จ';
             }
             mysqli_close($con);
-            
         }
     }else{
         $respResultCode = '99';
         $respReferenceNo = $_GET["referenceNo"];
     }
     
-
 ?>
 
 <!DOCTYPE html>
@@ -102,9 +100,8 @@
                     }
                 }?>
 
-
-
-                <h5>เลขที่คำสั่งซื้อ : <?php echo ($respResultCode == "00") ? $_POST["referenceNo"] : $respReferenceNo;?></h5>
+                <h5>เลขที่คำสั่งซื้อ :
+                    <?php echo ($respResultCode == "00") ? $_POST["referenceNo"] : $respReferenceNo;?></h5>
 
 
                 <div class="d-grid gap-2 col-6 mx-auto mt-3">

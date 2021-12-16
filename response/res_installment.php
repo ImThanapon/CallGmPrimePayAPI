@@ -15,6 +15,9 @@
 
     fclose($respFile);
 
-    echo "ok";
+    
+        echo $json_obj->resultCode;
+
+    
 
 ?>

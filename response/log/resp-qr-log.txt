@@ -1,0 +1,7 @@
+{"amount":41.00,"retryFlag":null,"referenceNo":"201212852","gbpReferenceNo":"gbp149411990245","currencyCode":"764","resultCode":"00","resultMessage":null,"totalAmount":41.00,"fee":0.25,"vat":0.01750,"thbAmount":41.00,"date":"16122021","time":"210229","paymentType":"Q"}
+
+resultCode=00
+amount=41
+referenceNo=201212852
+gbpReferenceNo=gbp149411990245
+currencyCode=764

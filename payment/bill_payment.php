@@ -70,8 +70,8 @@
                             <input class="mb-2" type="text" name="customerName" placeholder="กรอกชื่อ-สกุล" value="">
                             <input class="mb-2" type="text" name="customerEmail" placeholder="กรอกที่อยู่อีเมล" value="">
                             <input class="mb-2" type="text" name="merchantDefined1" placeholder="กรอกที่อยู่" value="">
-                            <input class="mb-2" type="text" name="referenceNo"placeholder="Amount" value="<?= $ref_no?>" disabled>
-                            <input class="mb-2" type="number" name="amount" placeholder="Amount" value="<?= $amount?>" disabled>
+                            <input class="mb-2" type="text" name="referenceNo"placeholder="ref_no" value="<?= $ref_no?>" >
+                            <input class="mb-2" type="number" name="amount" placeholder="Amount" value="<?= $amount?>" >
                         </div>
                     </div>
 
