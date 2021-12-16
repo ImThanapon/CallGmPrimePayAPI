@@ -2,7 +2,7 @@
     require_once('../connetion.php');
     require_once('../env.php');
 
-    if (!isset($_GET['deleted'])) {
+    if (!isset($_GET['situation'])) {
         $respFile = fopen("log/resp-credit-log.txt", "w") or die("Unable to open file!");
 
         $respResultCode = $_POST["resultCode"];
@@ -45,6 +45,7 @@
         }
     }else{
         $respResultCode = '99';
+        $respReferenceNo = $_GET["referenceNo"];
     }
     
 
@@ -96,17 +97,17 @@
                 <?php if ($respResultCode != "00") {
                     echo '<div class="mt-2 alert alert-danger" role="alert"> <i class="fas fa-exclamation-triangle"></i>
                         <span>เกิดข้อผิดพลาดในขั้นตอนการชำระเงิน <br>กรุณาตรวจสอบข้อมูลบัตรของท่าน <br>และทำรายการใหม่อีกครั้ง</span></div>';
-                    if (!isset($_GET['deleted'])) {
-                            echo "<script>window.location='".$host."delete.php?ref_no=".$respReferenceNo."'; </script>";
+                    if (!isset($_GET['situation'])) {
+                            echo "<script>window.location='".$host."delete.php?ref_no=".$respReferenceNo."&gbp_ref=".$respGbpReferenceNo."'; </script>";
                     }
                 }?>
 
 
 
-                <h5>หมายเลขอ้างอิง : <?php echo ($respResultCode == "00") ? $_POST["referenceNo"] : '-';?></h5>
+                <h5>เลขที่คำสั่งซื้อ : <?php echo ($respResultCode == "00") ? $_POST["referenceNo"] : $respReferenceNo;?></h5>
 
 
-                <div class="d-grid gap-2 col-6 mx-auto">
+                <div class="d-grid gap-2 col-6 mx-auto mt-3">
                     <a class="btn btn-primary btn-sm rounded-pill" href="<?= $host?>">กลับสู่หน้าหลัก</a>
                 </div>
 

@@ -87,9 +87,16 @@
                                         <?php
                                             if($rows_order[$i]['result_code'] == '00'){
                                                 echo '<span class="badge bg-success">ชำระเงินแล้ว</span>';
-                                            }else{
+                                            }
+                                            if($rows_order[$i]['result_code'] == '99'){
                                                 echo '<span class="badge bg-warning text-dark">รอการชำระเงิน</span>';
                                             }
+                                            if($rows_order[$i]['result_code'] == '88'){
+                                                echo '<span class="badge bg-danger">ทำรายการไม่สำเร็จ</span>';
+                                            }
+
+                                                
+                                            
                                         ?>
                                     
                                     </td>

@@ -5,7 +5,7 @@
     $refNo = $_GET['refNo'];
     $price = $_GET['price'];
     $sql_cre_order = "INSERT INTO order_detail(customer_id, product_id, result_code, ref_no, date_payment, amount)
-                      VALUES ('6121600233','$id','99','$refNo',null, '$price') ";
+                      VALUES ('12345678912','$id','99','$refNo',null, '$price') ";
     $query = mysqli_query($con,$sql_cre_order);
     if($query) {
     }

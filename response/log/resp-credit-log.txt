@@ -1,5 +1,5 @@
-resultCode : 05
-amount : 25.00
-referenceNo : 201212300
-gbpReferenceNo : gbp149411989773
+resultCode : 00
+amount : 75.00
+referenceNo : 201212308
+gbpReferenceNo : gbp149411989864
 currencyCode : 
