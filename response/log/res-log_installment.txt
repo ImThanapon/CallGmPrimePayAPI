@@ -1,4 +1,4 @@
-referenceNo=201212926&gbpReferenceNo=gbp149411990340&amount=75.00&currencyCode=764&resultCode=00
+referenceNo=201212530&gbpReferenceNo=gbp149411990376&amount=32.00&currencyCode=764&resultCode=00
 
 resultCode=
 amount=

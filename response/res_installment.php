@@ -46,6 +46,20 @@
         // echo 'เพิ่มข้อมูลไม่สำเร็จ';
         }
         mysqli_close($con);
+    }else{
+        $sql_update = " UPDATE order_detail 
+                        SET result_code = '88'                            
+                        WHERE ref_no = '$referenceNo'";
+
+        $query = mysqli_query($con,$sql_update);
+        if($query) {
+
+            // echo "Record add successfully";
+        }else{
+        // echo 'เพิ่มข้อมูลไม่สำเร็จ';
+        }
+        mysqli_close($con);
+
     }
 
     

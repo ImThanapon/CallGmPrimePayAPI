@@ -1,7 +1,7 @@
-{"amount":41.00,"retryFlag":null,"referenceNo":"201212260","gbpReferenceNo":"gbp149411990321","currencyCode":"764","resultCode":"00","resultMessage":null,"totalAmount":41.00,"fee":0.25,"vat":0.01750,"thbAmount":41.00,"date":"17122021","time":"002637","paymentType":"Q"}
+{"amount":75.00,"retryFlag":null,"referenceNo":"201212602","gbpReferenceNo":"gbp149411990378","currencyCode":"764","resultCode":"00","resultMessage":null,"totalAmount":75.00,"fee":0.25,"vat":0.01750,"thbAmount":75.00,"date":"17122021","time":"020858","paymentType":"Q"}
 
 resultCode=00
-amount=41
-referenceNo=201212260
-gbpReferenceNo=gbp149411990321
+amount=75
+referenceNo=201212602
+gbpReferenceNo=gbp149411990378
 currencyCode=764
