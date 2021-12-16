@@ -52,7 +52,7 @@
                     <table class="table table-striped table-valign-middle text-center">
                         <thead>
                         <tr>
-                            <th>คำสั่งซื้อ</th>
+                            <th>เลขที่คำสั่งซื้อ</th>
                             <th>รหัสสินค้า</th>
                             <th>จำนวนเงิน</th>
                             <th>เวลาชำระเงิน</th>
