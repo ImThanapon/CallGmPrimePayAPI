@@ -1,0 +1,9 @@
+referenceNo=201212926&gbpReferenceNo=gbp149411990340&amount=75.00&currencyCode=764&resultCode=00
+
+resultCode=
+amount=
+referenceNo=
+gbpReferenceNo=
+currencyCode=
+totalAmount=
+thbAmount=
