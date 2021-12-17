@@ -71,12 +71,13 @@
                                     <h3>ช่องทางการชำระเงิน</h3>
 
                                     <a class="btn btn-primary"
-                                        href="payment/genToken.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ชำระด้วย
+                                        href="payment/genTokenCredit.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ชำระด้วย
                                         Credit/Debit card</a>
-                                        <a class="btn btn-info text-dark"
-                                        href=">">ชำระด้วย
+
+                                    <a class="btn btn-info text-dark"
+                                        href="payment/genTokenRecurring.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ชำระด้วย
                                         Recurring</a>
-                                    
+
                                     <a class="btn btn-warning"
                                         href="payment/installment.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ระบบผ่อนชำระ
                                         Installment</a>
@@ -85,9 +86,11 @@
                                     <a class="btn btn-secondary"
                                         href="payment/qrcode.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ชำระด้วย
                                         QR Code</a>
+
                                     <a class="btn btn-danger"
                                         href="payment/mobile_banking.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ชำระด้วย
                                         Mobile Banking</a>
+
                                     <a class="btn btn-success"
                                         href="payment/bill_payment.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ชำระด้วย
                                         Bill Payment</a>

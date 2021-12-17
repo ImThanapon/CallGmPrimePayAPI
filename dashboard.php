@@ -123,6 +123,9 @@
                                                     if($rows_order[$i]['pay_method'] == 'MobileBanking'){
                                                         echo '<span class="badge bg-secondary">Mobile Banking</span>';
                                                     }
+                                                    if($rows_order[$i]['pay_method'] == 'recurring'){
+                                                        echo '<span class="badge bg-secondary">Recurring</span>';
+                                                    }
                                                 ?>
                                             </td>
                                             
