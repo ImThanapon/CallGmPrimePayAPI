@@ -1,4 +1,12 @@
-<?php require('env.php')?>
+<?php 
+    session_start();
+    require('env.php');
+
+    $_SESSION['p_id'] = $_GET['p_id'];
+    $_SESSION['price'] = $_GET['price'];
+    $_SESSION['ref_no'] = $ranRefNo;
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 

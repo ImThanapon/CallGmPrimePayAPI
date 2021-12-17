@@ -1,18 +1,20 @@
 <?php
+  session_start();
+
   require('../env.php');
 
   if(isset($_GET['token'])){
     $token = $_GET['token'];
 
     $data = array(
-      'amount' => $_GET['price'],
-      'referenceNo' => $_GET['refNo'],
+      'amount' => $_SESSION['price'],
+      'referenceNo' => $_SESSION['ref_no'],
       'detail' => 't-shirt',
       'customerName' => 'John',
       'customerEmail' => 'example@gbprimepay.com',
       'merchantDefined1' => 'Promotion',
       'card' => array(
-        'token' => $_GET['token'],
+        'token' => $token,
       ),
       'otp' => 'Y',
       'backgroundUrl' => $resUrl.'res_credit.php',
@@ -39,7 +41,8 @@
     curl_close($ch);
     
     $chargeResp = json_decode($result, true);
-    header( "location: 3DSecure.php?gbpReferenceNo=".$chargeResp['gbpReferenceNo'] );
+    $_SESSION['gbpReferenceNo'] = $chargeResp['gbpReferenceNo'];
+    header( "location: 3DSecure.php" );
   }
 
 ?>

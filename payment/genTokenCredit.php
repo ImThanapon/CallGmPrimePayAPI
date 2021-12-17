@@ -1,11 +1,12 @@
 <?php
+    session_start();
     require_once('../connetion.php');
     require('../env.php');
-    $id = $_GET['id'];
-    $refNo = $_GET['refNo'];
-    $price = $_GET['price'];
+    $id = $_SESSION['p_id'];
+    $ref_no = $_SESSION['ref_no'];
+    $price = $_SESSION['price'];
     $sql_cre_order = "INSERT INTO order_detail(customer_id, product_id, result_code, ref_no, date_payment, amount, pay_method)
-                      VALUES ('cus0001','$id','99','$refNo',null, '$price', 'credit') ";
+                      VALUES ('cus0001','$id','99','$ref_no',null, '$price', 'credit') ";
     $query = mysqli_query($con,$sql_cre_order);
     if($query) {
     }
@@ -122,7 +123,7 @@
             success: function(dataResp) {
                 var dataStr = JSON.stringify(dataResp);
                 // alert(dataResp['card'].token);
-                window.location.href = "<?= $host?>payment/credit.php?token=" + dataResp['card'].token + "&refNo=<?= $_GET['refNo']?>&price=<?= $_GET['price']?>";
+                window.location.href = "<?= $host?>payment/credit.php?token=" + dataResp['card'].token;
             },
             failure: function(errMsg) {
                 alert(errMsg);
