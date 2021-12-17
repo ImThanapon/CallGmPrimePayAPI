@@ -1,9 +1,0 @@
-{"amount":75.00,"retryFlag":"N","referenceNo":"201212930","gbpReferenceNo":"gbp149411990323","currencyCode":"764","resultCode":"00","resultMessage":"Success","totalAmount":75.00,"fee":6.675,"vat":0.46725,"thbAmount":75.00,"detail":"ข้อมูลรายละเอียด","cardNo":"4535XXXXXXXX5741","date":"17122021","time":"003213","paymentType":"I","amountPerMonth":7.50,"payMonth":"10","selectedBank":"Kasikornbank Public Company Limited","issuerBank":"Kasikornbank Public Company Limited","selectedCountry":"THA","cardType":"003"}
-
-resultCode=00
-amount=75
-referenceNo=201212930
-gbpReferenceNo=gbp149411990323
-currencyCode=764
-totalAmount=75
-thbAmount=75

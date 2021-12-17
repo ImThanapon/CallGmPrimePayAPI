@@ -109,13 +109,19 @@
                                             <td>
                                                 <?php
                                                     if($rows_order[$i]['pay_method'] == 'credit'){
-                                                        echo '<span class="badge rounded-pill bg-secondary">Credit Card</span>';
+                                                        echo '<span class="badge bg-secondary">Credit Card</span>';
                                                     }
                                                     if($rows_order[$i]['pay_method'] == 'qr'){
-                                                        echo '<span class="badge rounded-pill bg-primary">QR code</span>';
+                                                        echo '<span class="badge bg-secondary">QR code</span>';
                                                     }
                                                     if($rows_order[$i]['pay_method'] == 'installment'){
-                                                        echo '<span class="badge rounded-pill bg-warning text-dark">Installment</span>';
+                                                        echo '<span class="badge bg-secondary">Installment</span>';
+                                                    }
+                                                    if($rows_order[$i]['pay_method'] == 'bill'){
+                                                        echo '<span class="badge bg-secondary">Bill</span>';
+                                                    }
+                                                    if($rows_order[$i]['pay_method'] == 'MobileBanking'){
+                                                        echo '<span class="badge bg-secondary">Mobile Banking</span>';
                                                     }
                                                 ?>
                                             </td>

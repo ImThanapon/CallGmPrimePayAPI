@@ -1,10 +1,20 @@
 <?php
     require('../env.php');
-
+    require_once('../connetion.php');
     if(isset($_GET['refNo'])){
         $ref_no = $_GET['refNo'];
         $price = number_format($_GET['price'], 2);
     }
+
+    $id = $_GET['id'];
+    $sql_cre_order = "INSERT INTO order_detail(customer_id, product_id, result_code, ref_no, date_payment, amount, pay_method)
+                        VALUES ('cus0001','$id','99','$ref_no',null, '$price', 'MobileBanking') ";
+
+    $query = mysqli_query($con,$sql_cre_order);
+    if($query) {
+        // echo "000";
+    }
+    mysqli_close($con);
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +28,7 @@
 </head>
 
 <body>
-    <form id="mobileBankingform" action="https://api.globalprimepay.com/v2/mobileBanking" method="POST">
+    <form id="mobileBankingform" action="<?= $testUrlAPI?>v2/mobileBanking" method="POST">
         <input type="hidden" name="publicKey" value="<?= $public_key?>" /><br />
         <input type="hidden" name="customerTelephone" value="0619807818" /><br />
         <input type="hidden" name="referenceNo" value="<?= $ref_no?>" /><br />
@@ -44,7 +54,7 @@
         <div>
             <label>Checksum: </label>
             <input type="text" name="checksum" value="" /><br />
-            <input id="button" type="button" onClick="genChecksum()" value="Generate Checksum" />
+            <input id="button" type="button" onclick="genChecksum()" value="Generate Checksum" />
         </div>
         <div>
             <button type="submit">Pay</button>
