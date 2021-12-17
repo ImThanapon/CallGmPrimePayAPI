@@ -1,0 +1,5 @@
+resultCode : 05
+amount : 41.00
+referenceNo : 201212643
+gbpReferenceNo : gbp149411990799
+currencyCode : 764

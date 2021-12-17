@@ -3,6 +3,7 @@
     require_once('../env.php');
 
     if (!isset($_GET['situation'])) {
+        
         $respFile = fopen("log/resp-credit-log.txt", "w") or die("Unable to open file!");
 
         $respResultCode = $_POST["resultCode"];
