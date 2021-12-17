@@ -50,7 +50,7 @@
     <div class="container">
         <div class="text-center mt-5">
 
-            <div class="card" style="border-radius: 40px; margin: 5% 35% 0 35%; padding: 5% 0 5% 0">
+            <div class="card" style="border-radius: 40px; margin: 5% 20% 0 20%; padding: 5% 10% 5% 10%">
                 <div class="d-flex justify-content-center">
                     <img src="https://cdni.iconscout.com/illustration/premium/thumb/mobile-banking-app-4080602-3468647.png"
                         width=200px">
@@ -66,27 +66,51 @@
                     <input type="hidden" name="merchantDefined3" value="merchantDefined3" />
                     <input type="hidden" name="merchantDefined4" value="merchantDefined4" />
                     <input type="hidden" name="merchantDefined5" value="merchantDefined5" /> -->
-                    <div class="row m-3 text-left">
+                    <div class="m-3">
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">เลขที่คำสั่งซื้อ</span>
+                            <input type="text" class="form-control" name="referenceNo" value="<?= $ref_no?>" />
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">ราคาสินค้า</span>
+                            <input type="text" class="form-control" name="amount" maxlength="13" placeholder="Amount"
+                                value="<?= $price?>" />
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">ธนาคาร</span>
+                            <select class="form-select" name="bankCode" onchange="genChecksum()">
+                                    <option value="004" selected>kBank</option>
+                                    <option value="014">SCB</option>
+                                    <option value="025">Krungsri</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <!-- <div class="row m-3 text-left">
+
                         <div class="col">
+                            <p>เลขที่คำสั่งซื้อ</p>
                             <p>ราคาสินค้า</p>
                             <p class="mb-3">ธนาคาร</p>
                         </div>
                         <div class="col">
                             <div class="input-group">
+                                <input class="input-group-text mb-2" type="text" name="referenceNo"
+                                    value="<?= $ref_no?>" /><br />
                                 <input class="input-group-text mb-2" type="number" name="amount" maxlength="13"
                                     placeholder="Amount" value="<?= $price?>" />
-                                    <select class="form-select" name="bankCode" onchange="genChecksum()">
-                                <option value="004" selected>kBank</option>
-                                <option value="014">SCB</option>
-                                <option value="025">Krungsri</option>
-                            </select>
-                            </div>                  
+                                <select class="form-select" name="bankCode" onchange="genChecksum()">
+                                    <option value="004" selected>kBank</option>
+                                    <option value="014">SCB</option>
+                                    <option value="025">Krungsri</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
+                    </div> -->
                     <input class="btn btn-primary" id="button" type="submit" value="ต่อไป">
                     <input type="hidden" name="publicKey" value="<?= $public_key?>" /><br />
                     <input type="hidden" name="customerTelephone" value="0619807818" /><br />
-                    <input type="hidden" name="referenceNo" value="<?= $ref_no?>" /><br />
+
                     <input type="hidden" name="backgroundUrl" value="<?= $resUrl?>res_bank.php" /><br />
                     <input type="hidden" name="responseUrl" value="<?= $resUrl?>res_bank.php" /><br />
                     <input type="hidden" name="checksum" placeholder="checksum" value=""><br />

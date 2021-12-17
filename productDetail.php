@@ -73,6 +73,10 @@
                                     <a class="btn btn-primary"
                                         href="payment/genToken.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ชำระด้วย
                                         Credit/Debit card</a>
+                                        <a class="btn btn-info text-dark"
+                                        href=">">ชำระด้วย
+                                        Recurring</a>
+                                    
                                     <a class="btn btn-warning"
                                         href="payment/installment.php?id=<?= $_GET['p_id']?>&price=<?= $_GET['price']?>&refNo=<?= $ranRefNo?>">ระบบผ่อนชำระ
                                         Installment</a>
