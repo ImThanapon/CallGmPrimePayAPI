@@ -7,4 +7,3 @@
     $secret_key = "UKrMkNMg8jY7ZovzN8MIqvpXpZgRSzDn";
     $public_key = "3QpUB0bwqOczd1ynkEdefyq7rEA72QWD";
     $resUrl = $host_ngrok."DEENA/gbp/response/";
-?>

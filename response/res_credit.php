@@ -1,32 +1,32 @@
 <?php
-    require_once('../connetion.php');
-    require_once('../env.php');
+require_once('../connetion.php');
+require_once('../env.php');
 
-    if (!isset($_GET['situation'])) {
-        
-        $respFile = fopen("log/resp-credit-log.txt", "w") or die("Unable to open file!");
+if (!isset($_GET['situation'])) {
 
-        $respResultCode = $_POST["resultCode"];
-        fwrite($respFile, "resultCode : " . $respResultCode . "\n");
+    $respFile = fopen("log/resp-credit-log.txt", "w") or die("Unable to open file!");
 
-        $respAmount = $_POST["amount"];
-        fwrite($respFile, "amount : " . $respAmount . "\n");
+    $respResultCode = $_POST["resultCode"];
+    fwrite($respFile, "resultCode : " . $respResultCode . "\n");
 
-        $respReferenceNo = $_POST["referenceNo"];
-        fwrite($respFile, "referenceNo : " . $respReferenceNo . "\n");
+    $respAmount = $_POST["amount"];
+    fwrite($respFile, "amount : " . $respAmount . "\n");
 
-        $respGbpReferenceNo = $_POST["gbpReferenceNo"];
-        fwrite($respFile, "gbpReferenceNo : " . $respGbpReferenceNo . "\n");
+    $respReferenceNo = $_POST["referenceNo"];
+    fwrite($respFile, "referenceNo : " . $respReferenceNo . "\n");
 
-        $respCurrencyCode = $_POST["currencyCode"];
-        fwrite($respFile, "currencyCode : " . $respCurrencyCode . "\n");
+    $respGbpReferenceNo = $_POST["gbpReferenceNo"];
+    fwrite($respFile, "gbpReferenceNo : " . $respGbpReferenceNo . "\n");
 
-        fclose($respFile);
-        date_default_timezone_set('Asia/Bangkok');
-        $date_pay = date("y-m-d H:i:s");
+    $respCurrencyCode = $_POST["currencyCode"];
+    fwrite($respFile, "currencyCode : " . $respCurrencyCode . "\n");
 
-        if($respReferenceNo){
-            $sql_update = " UPDATE order_detail 
+    fclose($respFile);
+    date_default_timezone_set('Asia/Bangkok');
+    $date_pay = date("y-m-d H:i:s");
+
+    if ($respReferenceNo) {
+        $sql_update = " UPDATE order_detail 
                             SET date_payment = '$date_pay',
                                 result_code = '$respResultCode',
                                 amount = '$respAmount',
@@ -34,20 +34,20 @@
                                 currency_code = '$respCurrencyCode' 
                             WHERE ref_no = '$respReferenceNo'";
 
-            $query = mysqli_query($con,$sql_update);
-            if($query) {
+        $query = mysqli_query($con, $sql_update);
+        if ($query) {
 
-                // echo "Record add successfully";
-            }else{
+            // echo "Record add successfully";
+        } else {
             // echo 'เพิ่มข้อมูลไม่สำเร็จ';
-            }
-            mysqli_close($con);
         }
-    }else{
-        $respResultCode = '99';
-        $respReferenceNo = $_GET["referenceNo"];
+        mysqli_close($con);
     }
-    
+} else {
+    $respResultCode = '99';
+    $respReferenceNo = $_GET["referenceNo"];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -57,17 +57,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <title>สถานะการชำระเงิน</title>
 </head>
@@ -75,9 +71,8 @@
 <body class="hold-transition lockscreen">
     <nav class="navbar navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="<?= $host?>">
-                <img src="https://cdn2.iconfinder.com/data/icons/real-estate-1-12/50/13-512.png" alt="" width="30"
-                    height="24" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="<?= $host ?>">
+                <img src="https://cdn2.iconfinder.com/data/icons/real-estate-1-12/50/13-512.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
                 Store by AdminLTE
             </a>
         </div>
@@ -90,23 +85,23 @@
                 <h3>รายงานการทำธุรกรรม</h3>
 
                 <h5>สถานะการชำระเงิน :
-                    <?php echo ($respResultCode == "00") ? '<span class="badge bg-success">สำเร็จ</span>' : '<span class="badge bg-danger">ไม่สำเร็จ</span>';?>
+                    <?php echo ($respResultCode == "00") ? '<span class="badge bg-success">สำเร็จ</span>' : '<span class="badge bg-danger">ไม่สำเร็จ</span>'; ?>
                 </h5>
 
                 <?php if ($respResultCode != "00") {
                     echo '<div class="mt-2 alert alert-danger" role="alert"> <i class="fas fa-exclamation-triangle"></i>
                         <span>เกิดข้อผิดพลาดในขั้นตอนการชำระเงิน <br>กรุณาตรวจสอบข้อมูลบัตรของท่าน <br>และทำรายการใหม่อีกครั้ง</span></div>';
                     if (!isset($_GET['situation'])) {
-                            echo "<script>window.location='".$host."delete.php?ref_no=".$respReferenceNo."&gbp_ref=".$respGbpReferenceNo."'; </script>";
+                        echo "<script>window.location='" . $host . "delete.php?ref_no=" . $respReferenceNo . "&gbp_ref=" . $respGbpReferenceNo . "'; </script>";
                     }
-                }?>
+                } ?>
 
                 <h5>เลขที่คำสั่งซื้อ :
-                    <?php echo ($respResultCode == "00") ? $_POST["referenceNo"] : $respReferenceNo;?></h5>
+                    <?php echo ($respResultCode == "00") ? $_POST["referenceNo"] : $respReferenceNo; ?></h5>
 
 
                 <div class="d-grid gap-2 col-6 mx-auto mt-3">
-                    <a class="btn btn-primary btn-sm rounded-pill" href="<?= $host?>">กลับสู่หน้าหลัก</a>
+                    <a class="btn btn-primary btn-sm rounded-pill" href="<?= $host ?>">กลับสู่หน้าหลัก</a>
                 </div>
 
 

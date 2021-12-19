@@ -30,4 +30,3 @@
         echo "<script>window.location='".$host."response/res_credit.php?situation=incorrect&referenceNo=".$ref_no_id."'; </script>";
 
       }
-?>
